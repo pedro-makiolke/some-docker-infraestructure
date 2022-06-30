@@ -1,0 +1,40 @@
+version: "3.4"
+services:
+  marketplace-analytics-scylla-1:
+    image: scylladb/scylla
+    container_name: marketplace-analytics-scylla-1
+    command: --seeds=marketplace-analytics-scylla-1,marketplace-analytics-scylla-2,marketplace-analytics-scylla-3
+    networks:
+      - shared
+    ports:
+      - 9042:9042
+    volumes:
+      - ./scylla-data/node-01:/var/lib/scylla
+      - ./scylla.yaml:/etc/scylla/scylla.yaml
+
+  marketplace-analytics-scylla-2:
+    image: scylladb/scylla
+    container_name: marketplace-analytics-scylla-2
+    command: --seeds=marketplace-analytics-scylla-1,marketplace-analytics-scylla-2,marketplace-analytics-scylla-3
+    networks:
+      - shared
+    ports:
+      - 9043:9042
+    volumes:
+      - ./scylla-data/node-02:/var/lib/scylla
+
+  marketplace-analytics-scylla-3:
+    image: scylladb/scylla
+    container_name:  marketplace-analytics-scylla-3
+    command: --seeds=marketplace-analytics-scylla-1,marketplace-analytics-scylla-2,marketplace-analytics-scylla-3
+    networks:
+      - shared
+    ports:
+      - 9044:9042
+    volumes:
+      - ./scylla-data/node-03:/var/lib/scylla
+
+
+networks:
+  shared:
+    driver: bridge
