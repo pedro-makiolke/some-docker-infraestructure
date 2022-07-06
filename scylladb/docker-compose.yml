@@ -4,6 +4,8 @@ services:
     image: scylladb/scylla
     container_name: marketplace-analytics-scylla-1
     command: --seeds=marketplace-analytics-scylla-1,marketplace-analytics-scylla-2,marketplace-analytics-scylla-3
+    environment:
+      - TZ=America/Sao_Paulo
     networks:
       - marketplace-analytics-network
     ports:
@@ -16,6 +18,8 @@ services:
     image: scylladb/scylla
     container_name: marketplace-analytics-scylla-2
     command: --seeds=marketplace-analytics-scylla-1,marketplace-analytics-scylla-2,marketplace-analytics-scylla-3
+    environment:
+      - TZ=America/Sao_Paulo
     networks:
       - marketplace-analytics-network
     ports:
@@ -27,6 +31,8 @@ services:
     image: scylladb/scylla
     container_name:  marketplace-analytics-scylla-3
     command: --seeds=marketplace-analytics-scylla-1,marketplace-analytics-scylla-2,marketplace-analytics-scylla-3
+    environment:
+      - TZ=America/Sao_Paulo
     networks:
       - marketplace-analytics-network
     ports:
