@@ -5,7 +5,7 @@ services:
     container_name: marketplace-analytics-scylla-1
     command: --seeds=marketplace-analytics-scylla-1,marketplace-analytics-scylla-2,marketplace-analytics-scylla-3
     networks:
-      - shared
+      - marketplace-analytics-network
     ports:
       - 9042:9042
     volumes:
@@ -17,7 +17,7 @@ services:
     container_name: marketplace-analytics-scylla-2
     command: --seeds=marketplace-analytics-scylla-1,marketplace-analytics-scylla-2,marketplace-analytics-scylla-3
     networks:
-      - shared
+      - marketplace-analytics-network
     ports:
       - 9043:9042
     volumes:
@@ -28,7 +28,7 @@ services:
     container_name:  marketplace-analytics-scylla-3
     command: --seeds=marketplace-analytics-scylla-1,marketplace-analytics-scylla-2,marketplace-analytics-scylla-3
     networks:
-      - shared
+      - marketplace-analytics-network
     ports:
       - 9044:9042
     volumes:
@@ -36,5 +36,6 @@ services:
 
 
 networks:
-  shared:
-    driver: bridge
+  marketplace-analytics-network:
+    external: true
+

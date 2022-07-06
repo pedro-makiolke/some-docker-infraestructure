@@ -1,0 +1,1 @@
+ docker exec marketplace-analytics-scylla-1 nodetool status
