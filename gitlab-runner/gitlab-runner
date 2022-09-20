@@ -8,5 +8,5 @@ docker run -d --name gitlab-runner --restart always \
 docker run --rm -it -v gitlab-runner-config:/etc/gitlab-runner gitlab/gitlab-runner:latest register
 
 
-https://medium.com/devops-with-valentine/how-to-configure-your-own-gitlab-runner-with-a-docker-executor-on-aws-ec2-d76c7be0660d
-https://docs.gitlab.com/runner/register/index.html#docker
+#https://medium.com/devops-with-valentine/how-to-configure-your-own-gitlab-runner-with-a-docker-executor-on-aws-ec2-d76c7be0660d
+#https://docs.gitlab.com/runner/register/index.html#docker
